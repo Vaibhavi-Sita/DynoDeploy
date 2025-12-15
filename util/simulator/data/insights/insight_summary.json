@@ -1,0 +1,27 @@
+{
+  "total_source_incidents": 146109,
+  "schema_template_keys": [
+    "active",
+    "county",
+    "crossStreet",
+    "description",
+    "geoLocation",
+    "growth_zone_municipality",
+    "growth_zone_name",
+    "growth_zone_source",
+    "growth_zone_type",
+    "incidentTime_timezone",
+    "incidentType",
+    "latitude",
+    "longitude",
+    "municipalID",
+    "municipality",
+    "numberOfUnits",
+    "pushSent",
+    "state",
+    "street",
+    "type",
+    "unitsInactive",
+    "unitsString"
+  ]
+}

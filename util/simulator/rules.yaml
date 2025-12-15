@@ -1,0 +1,239 @@
+metadata:
+  version: 2
+  notes: >
+    Redeployment and downtime toggles mirroring the latest planning matrix.
+    Rules A–L have system-wide behavior, M–V add priority gating, and W–k
+    combine priority gating with explicit downtime policies.
+rules:
+  Rule_A:
+    description: Pure FCFS baseline with no redeployments
+    first_come_first_serve: true
+  Rule_B:
+    description: FCFS plus 25% random base redeploy
+    first_come_first_serve: true
+    base_random_redeploy: true
+  Rule_C:
+    description: FCFS plus random base and hotspot redeploy
+    first_come_first_serve: true
+    base_random_redeploy: true
+    popular_random_redeploy: true
+  Rule_D:
+    description: FCFS plus peak-time urban base redeploy
+    first_come_first_serve: true
+    base_peak_urban_redeploy: true
+  Rule_E:
+    description: FCFS plus peak-time urban base and hotspot redeploy
+    first_come_first_serve: true
+    base_peak_urban_redeploy: true
+    popular_peak_urban_redeploy: true
+  Rule_F:
+    description: FCFS plus system-wide peak base redeploy
+    first_come_first_serve: true
+    base_peak_redeploy: true
+  Rule_G:
+    description: FCFS plus system-wide peak base and hotspot redeploy
+    first_come_first_serve: true
+    base_peak_redeploy: true
+    popular_peak_redeploy: true
+  Rule_H:
+    description: FCFS plus perfect base redeploy
+    first_come_first_serve: true
+    base_perfect_redeploy: true
+  Rule_I:
+    description: FCFS plus perfect base and hotspot redeploy
+    first_come_first_serve: true
+    base_perfect_redeploy: true
+    popular_perfect_redeploy: true
+  Rule_J:
+    description: FCFS plus perfect redeploy with hospital staging
+    first_come_first_serve: true
+    base_perfect_redeploy: true
+    popular_perfect_redeploy: true
+    hospital_redeploy: true
+  Rule_K:
+    description: Peak redeploy (all geographies) with hospital staging + downtime
+    first_come_first_serve: true
+    base_peak_redeploy: true
+    popular_peak_redeploy: true
+    hospital_redeploy: true
+    hospital_downtime_hours: 0.25
+  Rule_L:
+    description: Peak redeploy plus hospital and hotspot downtime windows
+    first_come_first_serve: true
+    base_peak_redeploy: true
+    popular_peak_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+  Rule_M:
+    description: FCFS baseline with priority structure only
+    first_come_first_serve: true
+    priority_incident_types: [1, 2]
+  Rule_N:
+    description: Priority-only random base redeploy
+    first_come_first_serve: true
+    base_random_redeploy: true
+    priority_incident_types: [1, 2]
+  Rule_O:
+    description: Priority-only random base and hotspot redeploy
+    first_come_first_serve: true
+    base_random_redeploy: true
+    popular_random_redeploy: true
+    priority_incident_types: [1, 2]
+  Rule_P:
+    description: Priority-only peak urban base redeploy
+    first_come_first_serve: true
+    base_peak_urban_redeploy: true
+    priority_incident_types: [1, 2]
+  Rule_Q:
+    description: Priority-only peak urban base and hotspot redeploy
+    first_come_first_serve: true
+    base_peak_urban_redeploy: true
+    popular_peak_urban_redeploy: true
+    priority_incident_types: [1, 2]
+  Rule_R:
+    description: Priority-only peak base redeploy
+    first_come_first_serve: true
+    base_peak_redeploy: true
+    priority_incident_types: [1, 2]
+  Rule_S:
+    description: Priority-only peak base and hotspot redeploy
+    first_come_first_serve: true
+    base_peak_redeploy: true
+    popular_peak_redeploy: true
+    priority_incident_types: [1, 2]
+  Rule_T:
+    description: Priority-only perfect base redeploy
+    first_come_first_serve: true
+    base_perfect_redeploy: true
+    priority_incident_types: [1, 2]
+  Rule_U:
+    description: Priority-only perfect base and hotspot redeploy
+    first_come_first_serve: true
+    base_perfect_redeploy: true
+    popular_perfect_redeploy: true
+    priority_incident_types: [1, 2]
+  Rule_V:
+    description: Priority-only perfect redeploy with hospital staging
+    first_come_first_serve: true
+    base_perfect_redeploy: true
+    popular_perfect_redeploy: true
+    hospital_redeploy: true
+    priority_incident_types: [1, 2]
+  Rule_W:
+    description: Priority peak redeploy plus hospital staging and downtime
+    first_come_first_serve: true
+    base_peak_redeploy: true
+    popular_peak_redeploy: true
+    hospital_redeploy: true
+    hospital_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_X:
+    description: Priority peak redeploy with hospital/popular downtime windows
+    first_come_first_serve: true
+    base_peak_redeploy: true
+    popular_peak_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_Y:
+    description: Priority perfect redeploy plus hospital staging and both downtimes
+    first_come_first_serve: true
+    base_perfect_redeploy: true
+    popular_perfect_redeploy: true
+    hospital_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_Z:
+    description: Priority cooldown-only policy (hospital + hotspot)
+    first_come_first_serve: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_a:
+    description: Priority random base redeploy with cooldowns
+    first_come_first_serve: true
+    base_random_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_b:
+    description: Priority random base and hotspot redeploy with cooldowns
+    first_come_first_serve: true
+    base_random_redeploy: true
+    popular_random_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_c:
+    description: Priority peak urban base redeploy with cooldowns
+    first_come_first_serve: true
+    base_peak_urban_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_d:
+    description: Priority peak urban base and hotspot redeploy with cooldowns
+    first_come_first_serve: true
+    base_peak_urban_redeploy: true
+    popular_peak_urban_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_e:
+    description: Priority peak base redeploy with cooldowns
+    first_come_first_serve: true
+    base_peak_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_f:
+    description: Priority peak base and hotspot redeploy with cooldowns
+    first_come_first_serve: true
+    base_peak_redeploy: true
+    popular_peak_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_g:
+    description: Priority perfect base redeploy with cooldowns
+    first_come_first_serve: true
+    base_perfect_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_h:
+    description: Priority perfect base and hotspot redeploy with cooldowns
+    first_come_first_serve: true
+    base_perfect_redeploy: true
+    popular_perfect_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_i:
+    description: Priority perfect redeploy with hospital staging and cooldowns
+    first_come_first_serve: true
+    base_perfect_redeploy: true
+    popular_perfect_redeploy: true
+    hospital_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_j:
+    description: Priority peak redeploy with hospital staging and cooldowns
+    first_come_first_serve: true
+    base_peak_redeploy: true
+    popular_peak_redeploy: true
+    hospital_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
+  Rule_k:
+    description: Duplicate of Rule j per planning matrix
+    first_come_first_serve: true
+    base_peak_redeploy: true
+    popular_peak_redeploy: true
+    hospital_redeploy: true
+    hospital_downtime_hours: 0.25
+    popular_location_downtime_hours: 0.25
+    priority_incident_types: [1, 2]
