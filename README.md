@@ -11,7 +11,7 @@ If you want to run simulations, follow the steps below from the folder that cont
 
 - **Simulator**: `util/simulator/`
 - **Rule definitions**: `util/simulator/rules.yaml`
-- **Rule reference table (human-readable)**: `resources/original_incident_records/COMP 594 - Sheet1 (4).csv`
+- **Rule reference table (human-readable)**: `resources/original_incident_records/COMP 594.csv`
 - **DB helpers**: `util/simulator/database/`
 - **DB maintenance scripts**: `util/simulator/scripts/`
 - **Incident record generator**: `util/incident_record_generator/`
@@ -28,7 +28,7 @@ The simulator uses rules defined in:
 If you want a simple table that explains what each rule means (what toggles are on/off),
 see:
 
-- `resources/original_incident_records/COMP 594 - Sheet1 (4).csv`
+- `resources/original_incident_records/COMP 594.csv`
 
 This CSV is **for reference/documentation**. You do not need to open it to run the simulator.
 
